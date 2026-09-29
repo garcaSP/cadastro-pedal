@@ -1,5 +1,6 @@
 package com.pedal.cadastro_pedal.business;
 
+import com.pedal.cadastro_pedal.infrastructure.entity.Pedal;
 import com.pedal.cadastro_pedal.infrastructure.repository.PedalRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,20 @@ public class PedalService {
         repository.saveAndFlush(pedal);
     }
 
+    public Pedal buscarPedalPorNome(String nome){
+        return repository.findByEfeito(nome).orElseThrow(
+                () -> new RuntimeException("Pedal não encontrado")
+        );
+    }
+
+    public void atualizarPedalPorId(Integer id, Pedal pedal) {
+        Pedal pedalEntity = repository.findById(id).orElseThrow(() ->
+                new RuntimeException("Pedal não encontrado"));
+
+        Pedal pedalAtualizado = Pedal.builder() 
+                .id(pedalEntity.getId())
+                .build();
+
+        repository.saveAndFlush(pedalAtualizado);
+    }
 }

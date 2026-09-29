@@ -16,7 +16,7 @@ public class Pedal {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column (name = "Nome", length = "48")
+    @Column (name = "Nome", length = 48)
     private String nome;
 
     @Column (name = "Ano")
@@ -28,5 +28,4 @@ public class Pedal {
     @Column (name = "Marca")
     private String marca;
 
-    @Column (name = )
 }
