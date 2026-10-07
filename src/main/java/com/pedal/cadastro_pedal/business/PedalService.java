@@ -19,16 +19,20 @@ public class PedalService {
     }
 
     public Pedal buscarPedalPorNome(String nome){
-        return repository.findByEfeito(nome).orElseThrow(
+        return repository.findByNome(nome).orElseThrow(
                 () -> new RuntimeException("Pedal não encontrado")
         );
+    }
+
+    public void deletarPedalPorNome(String nome){
+        repository.deleteByNome(nome);
     }
 
     public void atualizarPedalPorId(Integer id, Pedal pedal) {
         Pedal pedalEntity = repository.findById(id).orElseThrow(() ->
                 new RuntimeException("Pedal não encontrado"));
 
-        Pedal pedalAtualizado = Pedal.builder() 
+        Pedal pedalAtualizado = Pedal.builder()
                 .id(pedalEntity.getId())
                 .build();
 

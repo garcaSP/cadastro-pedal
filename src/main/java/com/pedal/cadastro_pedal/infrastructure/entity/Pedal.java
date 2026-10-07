@@ -16,16 +16,16 @@ public class Pedal {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column (name = "Nome", length = 48)
+    @Column (name = "nome", length = 48)
     private String nome;
 
-    @Column (name = "Ano")
+    @Column (name = "ano")
     private Integer ano;
 
-    @Column (name = "Efeito")
+    @Column (name = "efeito")
     private String efeito;
 
-    @Column (name = "Marca")
+    @Column (name = "marca")
     private String marca;
 
 }
