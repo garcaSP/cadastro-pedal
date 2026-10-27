@@ -33,6 +33,10 @@ public class PedalService {
                 new RuntimeException("Pedal não encontrado"));
 
         Pedal pedalAtualizado = Pedal.builder()
+                .nome(pedal.getNome() != null ? pedal.getNome() : pedalEntity.getNome())
+                .ano(pedal.getAno() != null ? pedal.getAno() : pedalEntity.getAno())
+                .efeito(pedal.getEfeito() != null ? pedal.getEfeito() : pedalEntity.getEfeito())
+                .marca(pedal.getMarca() != null ? pedal.getMarca() : pedalEntity.getMarca())
                 .id(pedalEntity.getId())
                 .build();
 

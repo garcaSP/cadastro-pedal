@@ -1,7 +1,6 @@
 package com.pedal.cadastro_pedal.controller;
 
 import com.pedal.cadastro_pedal.infrastructure.entity.Pedal;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +28,17 @@ public class PedalController {
         return ResponseEntity.ok(pedalService.buscarPedalPorNome(nome));
     }
 
-    //@DeleteMapping
-    //public ResponseEntity<Void> deletarUsuarioPorNome
+    @DeleteMapping
+    public ResponseEntity<Void> deletarPedalPorNome(@RequestParam String nome)
+    {
+        pedalService.deletarPedalPorNome(nome);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> atualizarPedalPorId(@RequestBody Pedal pedal, @RequestParam Integer id)
+    {
+        pedalService.atualizarPedalPorId(id, pedal);
+        return ResponseEntity.ok().build();
+    }
 }
