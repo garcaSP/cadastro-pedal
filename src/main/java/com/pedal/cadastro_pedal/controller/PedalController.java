@@ -28,6 +28,12 @@ public class PedalController {
         return ResponseEntity.ok(pedalService.buscarPedalPorNome(nome));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Pedal> buscarPedalPorId(@PathVariable Integer id)
+    {
+        return ResponseEntity.ok(pedalService.buscarPedalPorId(id));
+    }
+
     @DeleteMapping
     public ResponseEntity<Void> deletarPedalPorNome(@RequestParam String nome)
     {
@@ -35,8 +41,8 @@ public class PedalController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping
-    public ResponseEntity<Void> atualizarPedalPorId(@RequestBody Pedal pedal, @RequestParam Integer id)
+    @PatchMapping("/{id}")
+    public ResponseEntity<Void> atualizarPedalPorId(@PathVariable Integer id, @RequestBody Pedal pedal)
     {
         pedalService.atualizarPedalPorId(id, pedal);
         return ResponseEntity.ok().build();

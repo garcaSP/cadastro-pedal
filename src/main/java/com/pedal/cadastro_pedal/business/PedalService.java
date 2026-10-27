@@ -24,6 +24,12 @@ public class PedalService {
         );
     }
 
+    public Pedal buscarPedalPorId(Integer id){
+        return repository.findById(id).orElseThrow(
+                () -> new RuntimeException("Pedal não encontrado")
+        );
+    }
+
     public void deletarPedalPorNome(String nome){
         repository.deleteByNome(nome);
     }

@@ -13,7 +13,7 @@ import lombok.*;
 
 public class Pedal {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column (name = "nome", length = 48)
